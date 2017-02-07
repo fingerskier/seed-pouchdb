@@ -1,0 +1,19 @@
+{
+  "name": "seed-pouchdb",
+  "version": "1.0.0",
+  "description": "Seed app for pouchdb",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fingerskier/seed-pouchdb.git"
+  },
+  "author": "fingerskier",
+  "license": "LGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/fingerskier/seed-pouchdb/issues"
+  },
+  "homepage": "https://github.com/fingerskier/seed-pouchdb#readme"
+}
