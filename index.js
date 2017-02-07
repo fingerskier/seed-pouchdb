@@ -2,21 +2,25 @@ var DB = new PouchDB('seed')
 var form = document.getElementById('note')
 ;
 savenote = function(event) {
+	event.preventDefault()
+
 	var note = {}
 	;
 	note.title = form.title.value
 	note.note = form.note.value
 	note.tags = form.tags.value
 	;
-	classonsole.log(note)
+	console.log(note)
 	;
 	// upsert an ID field
-	if (event.target._id.value == '') {
-		note._id = new Date().getTime() + ''
-	} else {
-		note._id = event.target._id.value
-	}
+	event.target._id = event.target._id || {value:''}
 	;
+	note._id =
+		event.target._id.value ?
+		new Date().getTime() :
+		event.target._id.value
+	;
+/*
 	DB.put(note, (error, response)=>{
 		if (error) {
 			console.error(error)
@@ -25,8 +29,9 @@ savenote = function(event) {
 
 		console.log('putted')
 	})
+*/
+	console.log('saving')
 
-	event.preventDefault()
 	return false
 }
 
