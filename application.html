@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en-us" manifest="pouchnotes.manifest">
+<head>
+	<meta charset="utf-8" />
+	<title>seed-pouchdb</title>
+	<!-- <link rel="stylesheet" type="text/css" href="style.min.css"> -->
+	<script src="pouchdb.js"></script>
+	<script src="lodash.js"></script>
+</head>
+
+<body>
+	<header>
+		<h1>seed-pouchdb</h1>
+	</header>
+	
+	<main>
+		<section id="addnote">
+			<form id="noteform" method="post">
+				<p>
+					<input type="hidden" id="_rev" name="_rev">
+					<input type="hidden" id="_id"  name="_id">
+					<label>
+						Title:
+						<input type="text" id="note_title" name="title" placeholder="Note Title" required>
+					</label>
+				</p>
+				<p>
+					<label>
+						Note text:
+						<textarea id="note_note" name="note" cols="50" rows="5" placeholder="Add note text here. This field is required." required></textarea>
+					</label>
+				</p>
+				<p>
+					<label>
+						Tags:
+						<input type="text" id="note_tags" name="tags">
+					</label>
+					<span class="guidance">Separate tags with a comma</span>
+				</p>
+
+				<p class="rel">
+					<input type="file" id="note_attachment" name="attachment" class="abs">
+					<label for="attachment" class="btn">Attachment(s):</label>
+					<span class="filelist"></span>
+				</p>
+
+				<div id="attachments">
+					<h3>Attachments</h3>
+					<ul id="attachmentlist"></ul>
+				</div>
+
+				<p>
+					<button type="submit">Save Note</button>
+				</p>
+			</form>
+		</section>
+		
+		<section id="allnotes">
+			<h2>Recent notes</h2>
+			<form id="searchnotes" method="get">
+				<p>
+					<label>
+						Search
+						<input type="search" id="q" name="q">
+					</label> 
+					<button type="submit">Search</button>
+				</p>
+			</form>
+			
+			
+			<table id="notelist">
+				<thead>
+					<tr>
+						<th>Title</th>
+						<th>Created</th>
+						<th>Updated</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+			</table>    
+		</section>  
+	</main>
+	
+	<div id="syncdialog">
+		<div>
+			<h1>Sync-ing data</h1>
+			<div class="progressbar">
+				<progress max="100"></progress>
+			</div>
+		</div>
+	</div>
+
+	<div id="errordialog" class="dialog hide" data-action="close">
+		<div>
+			<h1>Error</h1>
+			<div class="msg"></div>
+		</div>
+	</div>
+	
+	<footer>
+		<p>Released under an LGPL-3.0 license</p>
+	</footer>
+	
+	<!-- <script src="application.js"></script> -->
+	<script src="index.js"></script>
+</body>
+</html>

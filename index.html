@@ -7,12 +7,19 @@
 	</head>
 
 	<body>
-		<form id="note">
+		<form id="note" method="post">
 			<input type="text" name="title">
-			<input type="textarea" name="note">
+			<br>
+			<textarea name="note"></textarea>
+			<br>
 			<input type="text" name="tags">
+			<br>
+			<input type="file" name="attachment">
+			<br>
 			<button type="submit">save</button>
 		</form>
+
+		<table id="notelist"></table>
 		
 		<script src="index.js"></script>
 	</body>
