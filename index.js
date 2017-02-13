@@ -29,6 +29,7 @@ PouchDB.debug.enable('*')
 ;
 noteform.addEventListener('submit', savenote, false)
 ;
+<<<<<<< HEAD
 searchformobject.addEventListener('submit', searchNotes)
 ;
 window.addEventListener('hashchange', function (e) {
@@ -47,11 +48,15 @@ function searchNotes(event) {
 }
 ;
 function savenote(event) {
+=======
+savenote = function(event) {
+>>>>>>> c2e566e5476aa1ee556250663334796b46454837
 	event.preventDefault()
 
 	var note = {}
 	var file = noteform.attachment.files[0]
 	;
+<<<<<<< HEAD
 	note.title = noteform.title.value
 	note.note = noteform.note.value
 	note.tags = noteform.tags.value
@@ -76,12 +81,32 @@ function savenote(event) {
 		viewnoteset()
 	})
 	.catch((error)=>{
+=======
+	note.title = form.title.value
+	note.note = form.note.value
+	note.tags = form.tags.value
+	;
+	console.log(note)
+	;
+	// upsert an ID field
+	event.target._id = event.target._id || {value:''}
+	;
+	note._id =
+		event.target._id.value ?
+		new Date().getTime() :
+		event.target._id.value
+	;
+/*
+	DB.put(note, (error, response)=>{
+>>>>>>> c2e566e5476aa1ee556250663334796b46454837
 		if (error) {
 			console.error('doc put error', error)
 			throw error
 		}
 
 	})
+*/
+	console.log('saving')
 
 	return false
 }
